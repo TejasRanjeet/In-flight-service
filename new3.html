@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In-Flight Service Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #004080;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #004080;
+            color: white;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>In-Flight Service Application</h1>
+        <nav>
+            <ul>
+                <li><a href="#communication">Air Hostess Communication</a></li>
+                <li><a href="#food">In-Flight Food Ordering</a></li>
+                <li><a href="#direct-communication">Direct Communication</a></li>
+                <li><a href="#seat-exchange">Seat Exchange</a></li>
+                <li><a href="#medical-assistance">Medical Assistance</a></li>
+                <li><a href="#flight-status">Flight Status</a></li>
+                <li><a href="#entertainment">Entertainment</a></li>
+                <li><a href="#feedback">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="communication">
+            <h2>Air Hostess Communication</h2>
+            <button onclick="callAirHostess()">Call Air Hostess</button>
+        </section>
+
+        <section id="food">
+            <h2>In-Flight Food Ordering</h2>
+            <select id="food-menu">
+                <option value="sandwich">Sandwich</option>
+                <option value="salad">Salad</option>
+                <option value="drink">Drink</option>
+                <option value="dessert">Dessert</option>
+            </select>
+            <button onclick="orderFood()">Order Food</button>
+            <p id="order-status"></p>
+        </section>
+
+        <section id="direct-communication">
+            <h2>Direct Communication</h2>
+            <button onclick="makeCall()">Make Call</button>
+        </section>
+
+        <section id="seat-exchange">
+            <h2>Seat Exchange Facility</h2>
+            <button onclick="requestSeatExchange()">Request Seat Exchange</button>
+        </section>
+
+        <section id="medical-assistance">
+            <h2>Medical Assistance Notification</h2>
+            <button onclick="notifyMedicalAssistance()">Request Medical Assistance</button>
+        </section>
+
+        <section id="flight-status">
+            <h2>Flight Status Updates</h2>
+            <button onclick="checkFlightStatus()">Check Flight Status</button>
+            <p id="flight-status-message"></p>
+        </section>
+
+        <section id="entertainment">
+            <h2>Entertainment Options</h2>
+            <button onclick="viewEntertainment()">View Entertainment Options</button>
+            <p id="entertainment-options" class="hidden">Movies, Music, Games</p>
+        </section>
+
+        <section id="feedback">
+            <h2>Feedback Submission</h2>
+            <textarea id="feedback-text" placeholder="Your feedback..."></textarea>
+            <button onclick="submitFeedback()">Submit Feedback</button>
+            <p id="feedback-status"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Airline Services</p>
+    </footer>
+
+    <script>
+        function callAirHostess() {
+            alert("Air hostess has been notified.");
+        }
+
+        function orderFood() {
+            const foodItem = document.getElementById("food-menu").value;
+            document.getElementById("order-status").innerText = `You have ordered: ${foodItem}.`;
+        }
+
+        function makeCall() {
+            alert("Initiating a call. Please wait...");
+        }
+
+        function requestSeatExchange() {
+            alert("Your seat exchange request has been submitted.");
+        }
+
+        function notifyMedicalAssistance() {
+            alert("Medical assistance has been requested.");
+        }
+
+        function checkFlightStatus() {
+            // Mock flight status update
+            const status = "On Time"; // You can randomize or fetch real data if needed
+            document.getElementById("flight-status-message").innerText = `Flight Status: ${status}`;
+        }
+
+        function viewEntertainment() {
+            const options = document.getElementById("entertainment-options");
+            options.classList.toggle("hidden");
+        }
+
+        function submitFeedback() {
+            const feedback = document.getElementById("feedback-text").value;
+            if (feedback) {
+                document.getElementById("feedback-status").innerText = "Thank you for your feedback!";
+                document.getElementById("feedback-text").value = ""; // Clear the textarea
+            } else {
+                document.getElementById("feedback-status").innerText = "Please enter your feedback before submitting.";
+            }
+        }
+    </script>
+</body>
+</html>
